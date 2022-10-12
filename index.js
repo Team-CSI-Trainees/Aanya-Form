@@ -1,21 +1,15 @@
-const form = document.getElementById("form");
-const fname=document.getElementById("fname");
-const dob=document.getElementById("dob");
-const phone=document.getElementById("phone");
-const whatsapp=document.getElementById("whatsapp");
-const email=document.getElementById("email");
-const password=document.getElementById("password");
-const cpassword=document.getElementById("cpassword");
-const rdbgender=document.getElementById("rdbgender");
-const chklang=document.getElementById("chklang");
-const branch=document.getElementById("branch");
-const interest=document.getElementById("interest"); 
-
-form.addEventListener('submit', (event)=>{
-    event.preventDefault();
+var form = document.getElementById("form");
+var fname=document.getElementById("fname");
+var dob=document.getElementById("dob");
+var phone=document.getElementById("phone");
+var whatsapp=document.getElementById("whatsapp");
+var email=document.getElementById("email");
+var password=document.getElementById("password");
+var cpassword=document.getElementById("cpassword");
+form.addEventListener('submit', function(event){
     validate();
 })
-const validate = () => {
+var validate = () => {
     fname.addEventListener("blur", validatefname);
     dob.addEventListener("blur", validatedob);
     phone.addEventListener("blur", validatephone);
@@ -23,13 +17,9 @@ const validate = () => {
     email.addEventListener("blur", validateemail);
     password.addEventListener("blur", validatepassword);
     cpassword.addEventListener("blur", validatecpassword);
-    //rdbgender.addEventListener("blur", validaterdbgender);
-    //chklang.addEventListener("blur", validatechklang);
-    //branch.addEventListener("blur", validatebranch);
-    //interest.addEventListener("blur", validateinterest);
 
-    function validatefname(){
-        const regEx_fname=/^[A-Za-z. ]{2,30}$/;
+     function validatefname(){
+        var regEx_fname=/^[A-Za-z. ]{2,30}$/;
         if(!regEx_fname.test(fname.value)){
             NotValid(fname,'Name is invalid');
         }
@@ -39,17 +29,11 @@ const validate = () => {
         }
     }
     function validatedob(){
-        const regEx_dob=/^([0-9]{2})-([0-9]{2})-([0-9]{4})$/;
-        if(!regEx_dob.test(dob.value)){
-            NotValid(dob,'DOB is invalid');
-        }
-        else{
-            Valid(dob);
-            console.log(dob.value);
-        }
+        Valid(dob);
+        console.log(dob.value);
     }
     function validatephone(){
-        const regEx_phone=/^[789][0-9]{9}$/;
+        var regEx_phone=/^[789][0-9]{9}$/;
         if(!regEx_phone.test(phone.value)){
             NotValid(phone,'Phone number is invalid');
         }
@@ -60,7 +44,7 @@ const validate = () => {
     }
 
     function validatewhatsapp(){
-        const regEx_whatsapp=/^[789][0-9]{9}$/;
+        var regEx_whatsapp=/^[789][0-9]{9}$/;
         if(!regEx_whatsapp.test(whatsapp.value)){
             NotValid(whatsapp,'Whatsapp number is invalid');
         }
@@ -70,7 +54,7 @@ const validate = () => {
         }
     }
     function validateemail(){
-        const regEx_email=/^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+        var regEx_email=/^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
         if(!regEx_email.test(email.value)){
             NotValid(email,'Email is invalid');
         }
@@ -80,13 +64,12 @@ const validate = () => {
         }
     }
     function validatepassword(){
-        const regEx_password=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+        var regEx_password=/^[a-zA-Z0-9!@#$%^&*]{8,16}$/;
         if(!regEx_password.test(password.value)){
             NotValid(password,'Invalid password');
         }
         else{
             Valid(password);
-            console.log(password.value);
         }
     }
     function validatecpassword(){
@@ -97,19 +80,21 @@ const validate = () => {
             Valid(cpassword);
             console.log(cpassword.value);
         }
-    } 
+    }
 }
 function NotValid(input,errormsg){
-    const control = input.parentElement;
-    const small = control.querySelector('small');
+    var control = input.parentElement;
+    var span = control.querySelector('span');
     control.className = "control error";
-    small.innerText = errormsg;
+    span.innerText = errormsg;
 }
 function Valid(input){
-    const control = input.parentElement;
+    var control = input.parentElement;
     control.className = "control success";
 } 
 
-// js for form
+
+
+
 
 

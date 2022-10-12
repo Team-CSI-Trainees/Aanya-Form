@@ -1,9 +1,8 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 :root{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
     --myfont: sans-serif;
     --my-btn-font: sans-serif;
     --lg-lightcolor:linear-gradient(to left, rgba(116,235,213,0.6), rgba(159,172,230,0));
@@ -16,18 +15,16 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    width: 100vw;
+    min-height: 100%;
+    width: 100%;
     font-family: sans-serif;
+    overflow-x: hidden;
 }
 .container{
     background-color: #fff;
     border-radius: 8px;
-    -webkit-border-radius: 8px;
     box-shadow: 0 0 10px white;
-    /*cursor: pointer;*/
     overflow: hidden;
-    width: calc(100vw-65vw);
     max-width: 100%;
 }
 .header{
@@ -70,7 +67,7 @@ body{
     outline: 0;
     border-color: #9face6;
     cursor: pointer;
-    background-color:rgb(230, 220, 241);
+    background-color:rgb(208, 202, 214);
 }
 .control.success input{
     border-color: rgb(24, 187, 24);
@@ -85,21 +82,20 @@ body{
     visibility: hidden;
 }
 .control.success i.fa-circle-check{
-    color: rgb(24,187,24);
+    color: rgb(24, 155, 24);
     visibility: visible;
 }
 .control.error i.fa-exclamation-circle{
-    color:red;
+    color:rgb(218, 12, 12);
     visibility: visible;
 }
-.control small{
-    color:red;
+.control span{
+    color:rgb(206, 18, 18);
     position:absolute;
-    left:0;
-    bottom: 0;
+    font-size: 12px;
     visibility: hidden;
 }
-.control.error small{
+.control.error span{
     visibility: visible;
 }
 .form .btn{
@@ -122,7 +118,6 @@ body{
 }
 @media(max-width: 998px){
     .container{
-        width: calc(100vw-35vw);
         max-width: 100%;
     }
 }
