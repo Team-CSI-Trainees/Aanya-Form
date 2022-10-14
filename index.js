@@ -29,8 +29,13 @@ var validate = () => {
         }
     }
     function validatedob(){
-        Valid(dob);
-        console.log(dob.value);
+        if((dob.value)==" ")
+        NotValid(dob,'Please enter your dob');
+        else{
+            Valid(dob);
+            console.log(dob.value);
+        }
+        
     }
     function validatephone(){
         var regEx_phone=/^[789][0-9]{9}$/;
@@ -78,7 +83,6 @@ var validate = () => {
         }
         else{
             Valid(cpassword);
-            console.log(cpassword.value);
         }
     }
 }
@@ -92,9 +96,6 @@ function Valid(input){
     var control = input.parentElement;
     control.className = "control success";
 } 
-
-
-
 
 
 
